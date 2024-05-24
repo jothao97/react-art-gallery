@@ -1,18 +1,20 @@
-/*import React from "react";
-import AddArtwork from "./AddArtwork";
-import Artwork from "./artwork";
+import React from "react";
+import {Link} from 'react-router-dom';
+import artworks from "../data";
 
-function Gallery (){
-    return (
-        {/* Display details only if the current image index matches the selected image index 
-        {selectedImageIndex === index && (
-            <div className="artwork-details">
-              <h2>Image Details</h2>
-              <p>Art Piece: {art.artName}</p>
-              <p>Artist: {art.artist}</p>
-              <p>Detail: {art.artDetail}</p>
-            </div>
-    )
+function Gallery () {
+  return(
+    <div>
+      {artworks.map((art) => (
+        <div key={art.id} className="artwork">
+          <img src={art.imageUrl} alt={art.Piece}/>
+          <h3>{art.Piece}</h3>
+          <p>{art.Artist}</p>
+          <Link to={`/artwork/${art.id}`}>View Description</Link>
+        </div>
+      ))}
+    </div>
+  )
 }
 
-export default Gallery; */
+export default Gallery;
